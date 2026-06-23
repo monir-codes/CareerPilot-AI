@@ -45,7 +45,7 @@ export const Navbar = () => {
             {isSignedIn ? (
               <div className="flex items-center gap-4">
                 <Button href="/dashboard" variant="ghost" size="sm">Dashboard</Button>
-                <UserButton afterSignOutUrl="/" />
+                <UserButton />
               </div>
             ) : (
               <div className="flex items-center gap-4">

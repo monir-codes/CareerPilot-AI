@@ -67,7 +67,7 @@ export const Topbar = ({ onMenuClick }: { onMenuClick?: () => void }) => {
           )}
         </button>
         <div className="pl-2 border-l border-slate-200 dark:border-slate-800">
-          <UserButton afterSignOutUrl="/" />
+          <UserButton />
         </div>
       </div>
     </div>

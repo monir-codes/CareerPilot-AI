@@ -11,7 +11,7 @@ export const AdminTopbar = () => {
       </div>
       <div className="flex items-center gap-4 ml-auto">
         <span className="text-sm font-semibold hidden sm:inline-block">System Administrator</span>
-        <UserButton afterSignOutUrl="/" />
+        <UserButton />
       </div>
     </div>
   );
