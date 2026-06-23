@@ -1,7 +1,7 @@
 import { apiClient } from '@/core/api/axios';
 
 // Mock data generator for immediate UI visualization
-const generateMockCareers = (count) => Array.from({ length: count }).map((_, i) => ({
+const generateMockCareers = (count: number) => Array.from({ length: count }).map((_, i) => ({
   _id: `career_${i}`,
   title: ['Software Engineer', 'Product Manager', 'Data Scientist', 'UX Designer'][(i) % 4],
   description: 'Join a fast-growing team and build the future of technology with us.',
