@@ -4,7 +4,7 @@ const isProtectedRoute = createRouteMatcher(['/dashboard(.*)', '/admin(.*)']);
 
 export default clerkMiddleware(async (auth, req) => {
   if (isProtectedRoute(req)) await auth.protect();
-});
+}, { clockSkewInMs: 315360000000 });
 
 export const config = {
   matcher: [
