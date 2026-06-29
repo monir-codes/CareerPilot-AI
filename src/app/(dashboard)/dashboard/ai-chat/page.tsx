@@ -165,12 +165,12 @@ export default function AIChatPage() {
         {/* Chat Messages */}
         <div className="flex-1 overflow-y-auto p-4 md:p-8 space-y-6">
           {messages.length === 0 && !isLoading ? (
-            <div className="h-full flex flex-col items-center justify-center text-center max-w-md mx-auto space-y-4">
-              <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center">
-                 <Bot className="w-8 h-8" />
+            <div className="h-full flex flex-col items-center justify-center text-center max-w-md mx-auto space-y-4 px-4">
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center">
+                 <Bot className="w-6 h-6 md:w-8 md:h-8" />
               </div>
-              <h2 className="text-2xl font-bold">CareerPilot Assistant</h2>
-              <p className="text-slate-500">I can analyze resumes, draft cover letters, simulate interviews, and build career roadmaps. How can I help you today?</p>
+              <h2 className="text-xl md:text-2xl font-bold">CareerPilot Assistant</h2>
+              <p className="text-sm md:text-base text-slate-500">I can analyze resumes, draft cover letters, simulate interviews, and build career roadmaps. How can I help you today?</p>
             </div>
           ) : (
             <AnimatePresence initial={false}>
@@ -179,16 +179,16 @@ export default function AIChatPage() {
                   key={idx}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className={`flex gap-4 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
+                  className={`flex gap-2 md:gap-4 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
                 >
-                  <div className={`w-10 h-10 shrink-0 rounded-full flex items-center justify-center ${msg.role === 'user' ? 'bg-indigo-100 text-indigo-600 dark:bg-indigo-900/50 dark:text-indigo-400' : 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400'}`}>
-                    {msg.role === 'user' ? <User className="w-5 h-5" /> : <Bot className="w-5 h-5" />}
+                  <div className={`w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full flex items-center justify-center ${msg.role === 'user' ? 'bg-indigo-100 text-indigo-600 dark:bg-indigo-900/50 dark:text-indigo-400' : 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400'}`}>
+                    {msg.role === 'user' ? <User className="w-4 h-4 md:w-5 md:h-5" /> : <Bot className="w-4 h-4 md:w-5 md:h-5" />}
                   </div>
-                    <div className={`px-6 py-4 rounded-2xl max-w-[85%] md:max-w-[75%] ${msg.role === 'user' ? 'bg-primary text-white rounded-tr-none' : 'bg-slate-100 dark:bg-slate-900 rounded-tl-none text-slate-800 dark:text-slate-200 shadow-sm'}`}>
+                    <div className={`px-4 py-3 md:px-6 md:py-4 rounded-2xl max-w-[90%] md:max-w-[75%] break-words overflow-hidden ${msg.role === 'user' ? 'bg-primary text-white rounded-tr-none' : 'bg-slate-100 dark:bg-slate-900 rounded-tl-none text-slate-800 dark:text-slate-200 shadow-sm'}`}>
                       {msg.role === 'user' ? (
                         <p className="whitespace-pre-wrap leading-relaxed text-sm md:text-base">{msg.content}</p>
                       ) : (
-                        <div className="prose prose-sm md:prose-base dark:prose-invert max-w-none prose-p:leading-relaxed prose-p:my-5 prose-headings:mt-8 prose-headings:mb-4 prose-li:my-2 prose-pre:bg-slate-800 prose-pre:text-slate-100">
+                        <div className="prose prose-sm md:prose-base dark:prose-invert max-w-none prose-p:leading-relaxed prose-p:my-3 md:prose-p:my-5 prose-headings:mt-6 md:prose-headings:mt-8 prose-headings:mb-3 md:prose-headings:mb-4 prose-li:my-1 md:prose-li:my-2 prose-pre:bg-slate-800 prose-pre:text-slate-100 prose-pre:overflow-x-auto">
                           <ReactMarkdown remarkPlugins={[remarkGfm]}>
                             {msg.content}
                           </ReactMarkdown>
@@ -201,12 +201,12 @@ export default function AIChatPage() {
           )}
           
           {isLoading && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-4">
-              <div className="w-10 h-10 shrink-0 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
-                <Bot className="w-5 h-5 text-slate-500" />
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-2 md:gap-4">
+              <div className="w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                <Bot className="w-4 h-4 md:w-5 md:h-5 text-slate-500" />
               </div>
-              <div className="px-6 py-4 rounded-2xl bg-slate-100 dark:bg-slate-900 rounded-tl-none flex items-center gap-2">
-                <Loader2 className="w-5 h-5 animate-spin text-slate-500" />
+              <div className="px-4 py-3 md:px-6 md:py-4 rounded-2xl bg-slate-100 dark:bg-slate-900 rounded-tl-none flex items-center gap-2">
+                <Loader2 className="w-4 h-4 md:w-5 md:h-5 animate-spin text-slate-500" />
                 <span className="text-slate-500 font-medium text-sm">Pilot is thinking...</span>
               </div>
             </motion.div>
