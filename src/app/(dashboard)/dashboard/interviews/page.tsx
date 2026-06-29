@@ -59,18 +59,18 @@ export default function InterviewsPage() {
               Enter the specific role you are applying for. Our AI will generate hyper-targeted technical and behavioral questions with expected key points.
             </p>
             
-            <form onSubmit={generateQuestions} className="flex gap-2">
+            <form onSubmit={generateQuestions} className="flex flex-col sm:flex-row gap-3">
                <input 
                  type="text" 
                  value={role}
                  onChange={e => setRole(e.target.value)}
                  placeholder="e.g. Senior React Developer" 
-                 className="flex-1 px-4 py-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary"
+                 className="flex-1 w-full px-4 py-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-primary"
                />
                <button 
                  type="submit"
                  disabled={isLoading || !role}
-                 className="px-6 bg-primary text-white font-bold rounded-xl disabled:opacity-50 flex items-center justify-center gap-2 transition hover:bg-primary-hover"
+                 className="w-full sm:w-auto px-6 py-4 bg-primary text-white font-bold rounded-xl disabled:opacity-50 flex items-center justify-center gap-2 transition hover:bg-primary-hover sm:shrink-0"
                >
                  {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Generate'}
                </button>
@@ -80,9 +80,9 @@ export default function InterviewsPage() {
         </div>
       ) : (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
-           <div className="flex justify-between items-center bg-white dark:bg-[#09090b] p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-              <h2 className="text-xl font-bold">Interview Questions for: <span className="text-primary">{role}</span></h2>
-              <button onClick={() => setQuestions(null)} className="text-sm font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white">Start Over</button>
+           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white dark:bg-[#09090b] p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+              <h2 className="text-lg sm:text-xl font-bold">Interview Questions for: <span className="text-primary break-all">{role}</span></h2>
+              <button onClick={() => setQuestions(null)} className="text-sm font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white shrink-0 bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-lg">Start Over</button>
            </div>
            
            <div className="grid gap-6">

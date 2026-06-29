@@ -30,8 +30,8 @@ export const Testimonials = () => {
           transition={{ repeat: Infinity, ease: "linear", duration: 40 }}
         >
           {marqueeItems.map((t, idx) => (
-            <div key={idx} className="w-[350px] md:w-[450px] shrink-0 bg-white dark:bg-[#09090b] p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex flex-col shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-              <p className="text-slate-600 dark:text-slate-400 italic mb-8 flex-1 text-lg leading-relaxed">&quot;{t.text}&quot;</p>
+            <div key={idx} className="w-[280px] sm:w-[350px] md:w-[450px] shrink-0 bg-white dark:bg-[#09090b] p-6 md:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 flex flex-col shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <p className="text-slate-600 dark:text-slate-400 italic mb-6 md:mb-8 flex-1 text-base md:text-lg leading-relaxed">&quot;{t.text}&quot;</p>
               <div className="flex items-center gap-4">
                 <Image src={t.image} alt={t.name} width={56} height={56} className="rounded-full ring-2 ring-indigo-500/20" />
                 <div>

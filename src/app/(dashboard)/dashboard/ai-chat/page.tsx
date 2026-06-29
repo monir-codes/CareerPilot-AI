@@ -228,7 +228,7 @@ export default function AIChatPage() {
             <button 
               type="submit" 
               disabled={isLoading || !input.trim()}
-              className="px-5 py-3.5 bg-primary text-white rounded-xl font-bold hover:bg-primary-hover transition-colors disabled:opacity-50 flex items-center justify-center"
+              className="px-5 py-3.5 bg-primary text-white rounded-xl font-bold hover:bg-primary-hover transition-colors disabled:opacity-50 flex items-center justify-center shrink-0"
             >
               <Send className="w-5 h-5" />
             </button>
