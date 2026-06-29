@@ -10,37 +10,37 @@ import { FAQ } from '@/components/FAQ';
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] opacity-30 dark:opacity-20 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 blur-[100px] rounded-full mix-blend-multiply dark:mix-blend-screen animate-pulse" />
+      <section className="relative pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-32 lg:pt-40 md:pb-32 overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] md:w-[1000px] h-[400px] md:h-[500px] opacity-30 dark:opacity-20 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 blur-[80px] md:blur-[100px] rounded-full mix-blend-multiply dark:mix-blend-screen animate-pulse" />
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-50/50 via-background to-background dark:from-indigo-950/20 dark:via-background dark:to-background -z-10" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mt-8 md:mt-0">
           <ScrollReveal delay={0}>
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200 dark:border-slate-800 text-indigo-600 dark:text-indigo-400 text-sm font-bold mb-8 shadow-sm hover:shadow-md transition-shadow">
-              <Sparkles className="w-4 h-4 text-amber-500" /> Powered by Gemini 1.5 Pro
+            <div className="inline-flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200 dark:border-slate-800 text-indigo-600 dark:text-indigo-400 text-xs md:text-sm font-bold mb-6 md:mb-8 shadow-sm hover:shadow-md transition-shadow">
+              <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4 text-amber-500" /> Powered by Gemini 1.5 Pro
             </div>
           </ScrollReveal>
           
           <ScrollReveal delay={0.1}>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-8 text-slate-900 dark:text-white leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight mb-6 md:mb-8 text-slate-900 dark:text-white leading-[1.15] md:leading-[1.1]">
               Elevate your <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 drop-shadow-sm">career trajectory.</span>
             </h1>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <p className="text-lg md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-600 dark:text-slate-400 max-w-2xl lg:max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed">
               Stop guessing what hiring managers want. Get instant ATS resume analysis, dynamic learning roadmaps, and AI-powered mock interviews tailored to your exact profile.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.3}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button href="/sign-up" size="lg" className="w-full sm:w-auto flex items-center gap-2 group text-lg px-8 py-6 rounded-2xl shadow-xl shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all">
-                Start Free Trial <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-2 sm:px-0 w-full">
+              <Button href="/sign-up" size="lg" className="w-full sm:w-auto flex items-center justify-center gap-2 group text-base md:text-lg px-6 py-5 md:px-8 md:py-6 rounded-2xl shadow-xl shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all">
+                Start Free Trial <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button href="/explore" variant="outline" size="lg" className="w-full sm:w-auto text-lg px-8 py-6 rounded-2xl border-2 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors">
+              <Button href="/explore" variant="outline" size="lg" className="w-full sm:w-auto flex items-center justify-center text-base md:text-lg px-6 py-5 md:px-8 md:py-6 rounded-2xl border-2 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors">
                 Explore Careers
               </Button>
             </div>
@@ -48,10 +48,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-12 border-y border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
+      <section className="py-10 md:py-12 border-y border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-slate-200 dark:divide-slate-800">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center md:divide-x md:divide-slate-200 md:dark:divide-slate-800">
               {[
                 { value: '45,000+', label: 'Resumes Analyzed' },
                 { value: '1.2M', label: 'Tokens Processed' },
@@ -59,8 +59,8 @@ export default function HomePage() {
                 { value: '12,000+', label: 'Active Users' }
               ].map((stat, i) => (
                 <div key={i} className="flex flex-col hover:scale-105 transition-transform duration-300">
-                  <span className="text-3xl md:text-4xl font-extrabold text-foreground">{stat.value}</span>
-                  <span className="text-sm font-medium text-slate-500 mt-1">{stat.label}</span>
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-foreground">{stat.value}</span>
+                  <span className="text-xs sm:text-sm font-medium text-slate-500 mt-1">{stat.label}</span>
                 </div>
               ))}
             </div>
