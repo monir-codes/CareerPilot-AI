@@ -1,5 +1,5 @@
 "use client";
-import { BarChart, Bar, LineChart, Line, PieChart, Pie, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { BarChart, Bar, LineChart, Line, PieChart, Pie, AreaChart, Area, XAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 const data = [{name: 'Mon', value: 400}, {name: 'Tue', value: 300}, {name: 'Wed', value: 550}, {name: 'Thu', value: 450}, {name: 'Fri', value: 700}];
 const pieData = [{name: 'Free', value: 400}, {name: 'Pro', value: 300}, {name: 'Enterprise', value: 100}];

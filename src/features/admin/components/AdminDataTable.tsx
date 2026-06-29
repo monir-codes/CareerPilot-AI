@@ -2,7 +2,7 @@
 import { Download, Search, Filter } from 'lucide-react';
 import toast from 'react-hot-toast';
 
-export const AdminDataTable = ({ title, headers, data, exportable }: any) => {
+export const AdminDataTable = ({ title, headers, data, exportable }: Record<string, any>) => {
   const handleExport = () => {
     // Generate simple CSV payload simulation
     toast.success('CSV Export downloaded successfully!');
@@ -31,9 +31,9 @@ export const AdminDataTable = ({ title, headers, data, exportable }: any) => {
             <tr>{headers.map((h: string, i: number) => <th key={i} className="px-6 py-4 font-medium">{h}</th>)}</tr>
           </thead>
           <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-            {data.map((row: any) => (
+            {data.map((row: Record<string, any>) => (
               <tr key={row.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
-                {row.cells.map((cell: any, i: number) => <td key={i} className="px-6 py-4">{cell}</td>)}
+                {row.cells.map((cell: React.ReactNode, i: number) => <td key={i} className="px-6 py-4">{cell}</td>)}
               </tr>
             ))}
           </tbody>

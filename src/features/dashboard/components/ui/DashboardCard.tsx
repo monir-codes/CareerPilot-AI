@@ -1,4 +1,4 @@
-export const DashboardCard = ({ title, icon, value, trend }: any) => {
+export const DashboardCard = ({ title, icon, value, trend }: { title: string, icon: React.ReactNode, value: string | number, trend?: string }) => {
   return (
     <div className="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
       <div className="flex justify-between items-start mb-4">

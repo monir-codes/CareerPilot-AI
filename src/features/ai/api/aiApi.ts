@@ -9,7 +9,7 @@ export const analyzeResumeAPI = async (file: File) => {
   return response.data;
 };
 
-export const generateCoverLetterAPI = async (data: any) => {
+export const generateCoverLetterAPI = async (data: Record<string, any>) => {
   const response = await apiClient.post('/ai/cover-letter/generate', data);
   return response.data;
 };

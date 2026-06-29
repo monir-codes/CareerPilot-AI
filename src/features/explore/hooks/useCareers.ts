@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchCareers, fetchCareerById } from '../api/careerApi';
 
-export const useCareers = (filters: any) => {
+export const useCareers = (filters: Record<string, any>) => {
   return useQuery({
     queryKey: ['careers', filters],
     queryFn: () => fetchCareers(filters),

@@ -23,11 +23,11 @@ export const ProfileForm = () => {
     const fetchProfile = async () => {
       try {
         let token = null;
-        try { token = await getToken(); } catch(e) {}
+        try { token = await getToken(); } catch (_) {}
         
         if (!token && !userId) return;
 
-        const headers: any = { 'Content-Type': 'application/json' };
+        const headers: Record<string, string> = { 'Content-Type': 'application/json' };
         if (token) headers['Authorization'] = `Bearer ${token}`;
         if (userId) headers['x-test-user-id'] = userId;
 
@@ -47,17 +47,17 @@ export const ProfileForm = () => {
     fetchProfile();
   }, [getToken, userId, reset]);
 
-  const onSubmit = async (formData: any) => {
+  const onSubmit = async (formData: z.infer<typeof profileSchema>) => {
     try {
       let token = null;
-      try { token = await getToken(); } catch(e) {}
+      try { token = await getToken(); } catch (_) {}
 
       if (!token && !userId) {
         toast.error('Authentication failed');
         return;
       }
 
-      const headers: any = { 'Content-Type': 'application/json' };
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
       if (token) headers['Authorization'] = `Bearer ${token}`;
       if (userId) headers['x-test-user-id'] = userId;
 
@@ -72,7 +72,7 @@ export const ProfileForm = () => {
       } else {
         toast.error(data.message || 'Failed to update profile');
       }
-    } catch (error) {
+    } catch (_) {
       toast.error('An error occurred');
     }
   };

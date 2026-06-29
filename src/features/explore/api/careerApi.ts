@@ -1,4 +1,3 @@
-import { apiClient } from '@/core/api/axios';
 
 // Mock data generator for immediate UI visualization
 const generateMockCareers = (count: number) => Array.from({ length: count }).map((_, i) => ({
@@ -13,7 +12,7 @@ const generateMockCareers = (count: number) => Array.from({ length: count }).map
   category: ['Engineering', 'Product', 'Data', 'Design'][(i) % 4]
 }));
 
-export const fetchCareers = async (filters: any) => {
+export const fetchCareers = async (filters: Record<string, any>) => {
   // Simulate network delay
   await new Promise(resolve => setTimeout(resolve, 800));
   const data = generateMockCareers(20);
@@ -31,7 +30,7 @@ export const fetchCareers = async (filters: any) => {
   };
 };
 
-export const fetchCareerById = async (id: string) => {
+export const fetchCareerById = async (_id: string) => {
   await new Promise(resolve => setTimeout(resolve, 800));
   return generateMockCareers(1)[0];
 };

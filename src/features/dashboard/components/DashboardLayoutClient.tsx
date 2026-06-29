@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Sidebar } from './Sidebar';
 import { Topbar } from './Topbar';
-import { Menu, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
 export const DashboardLayoutClient = ({ children }: { children: React.ReactNode }) => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);

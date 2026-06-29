@@ -2,9 +2,11 @@
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useState, useEffect } from 'react';
 
-export const OverviewCharts = ({ chartData }: { chartData?: any[] }) => {
+export const OverviewCharts = ({ chartData }: { chartData?: Record<string, any>[] }) => {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   if (!mounted || !chartData) return <div className="h-[300px] bg-slate-100 dark:bg-slate-800 rounded-2xl animate-pulse" />;
 

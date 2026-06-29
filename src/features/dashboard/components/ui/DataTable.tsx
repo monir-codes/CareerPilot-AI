@@ -1,4 +1,4 @@
-export const DataTable = ({ headers, data }: any) => {
+export const DataTable = ({ headers, data }: { headers: string[], data: { id: string | number, cells: React.ReactNode[] }[] }) => {
   if (data.length === 0) {
     return <div className="p-8 text-center bg-white dark:bg-slate-950 rounded-xl border border-dashed border-slate-300">No data available</div>;
   }
@@ -11,9 +11,9 @@ export const DataTable = ({ headers, data }: any) => {
           </tr>
         </thead>
         <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-          {data.map((row: any) => (
+          {data.map((row) => (
             <tr key={row.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-900/50 transition">
-              {row.cells.map((cell: any, i: number) => <td key={i} className="px-6 py-4">{cell}</td>)}
+              {row.cells.map((cell, i: number) => <td key={i} className="px-6 py-4">{cell}</td>)}
             </tr>
           ))}
         </tbody>

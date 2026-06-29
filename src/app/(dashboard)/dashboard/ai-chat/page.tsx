@@ -85,50 +85,34 @@ export default function AIChatPage() {
     setIsLoading(true);
 
     try {
-      // 1. Direct call to Google Gemini
-      const { GoogleGenerativeAI } = await import('@google/generative-ai');
-      const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '');
-      const model = genAI.getGenerativeModel({ 
-        model: "gemini-2.5-flash",
-        systemInstruction: "You are an elite, highly professional Career Assistant named CareerPilot. Follow these strict formatting rules:\n1. BE CONCISE AND INTELLIGENT: Do not write massive walls of text. Only give long answers when explaining complex topics. For simple questions, give brief, direct answers.\n2. USE PROPER MARKDOWN HEADINGS: Always use ### or #### for main section titles.\n3. USE BOLD TEXT FOR EMPHASIS: Always wrap key words, terms, or bullet point titles in double asterisks (**like this**) so they stand out.\n4. PERFECT SPACING: You MUST insert exactly TWO blank lines (hit enter twice) between every single paragraph, section, and list. NEVER output cramped text. Make it look beautiful and easy to read.\n5. Maintain a structured, professional, and encouraging tone at all times. Never break character."
-      }); 
-      
-      const chat = model.startChat({
-        history: messages.map(m => ({
-          role: m.role === 'ai' ? 'model' : 'user',
-          parts: [{ text: m.content }]
-        }))
-      });
-      
-      const result = await chat.sendMessage(userMsg.content);
-      const responseText = result.response.text();
-      
-      const finalMessages = [...newMessages, { role: 'ai' as const, content: responseText }];
-      setMessages(finalMessages);
-
-      // 2. Sync to Backend DB
       const headers = await getAuthHeaders();
       headers['Content-Type'] = 'application/json';
 
-      const syncRes = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/v1/ai/chat/sync', {
+      const res = await fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000') + '/api/v1/ai/chat', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ 
-          messages: finalMessages,
-          sessionId: currentSessionId,
-          title: newMessages.length === 1 ? userMsg.content.substring(0, 30) : undefined
+        body: JSON.stringify({
+          message: input,
+          sessionId: currentSessionId
         })
       });
       
-      const syncData = await syncRes.json();
-      if (syncData.success && !currentSessionId) {
-        setCurrentSessionId(syncData.data.sessionId);
-        fetchSessions(); // refresh sidebar
-      }
+      const data = await res.json();
       
+      if (data.success) {
+        const finalMessages = [...newMessages, { role: 'ai' as const, content: data.data.text }];
+        setMessages(finalMessages);
+        
+        if (!currentSessionId) {
+          setCurrentSessionId(data.data.sessionId);
+          fetchSessions(); // refresh sidebar
+        }
+      } else {
+        throw new Error(data.message || 'Failed to get response');
+      }
     } catch (err: any) {
-      console.error("Gemini Direct Error:", err);
-      setMessages(prev => [...prev, { role: 'ai', content: `Sorry, an error occurred directly communicating with Google: ${err.message || 'Unknown error'}` }]);
+      console.error("Chat Error:", err);
+      setMessages(prev => [...prev, { role: 'ai', content: `Sorry, an error occurred: ${err.message || 'Unknown error'}` }]);
     } finally {
       setIsLoading(false);
     }

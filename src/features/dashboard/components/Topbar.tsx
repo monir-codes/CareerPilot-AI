@@ -20,11 +20,11 @@ export const Topbar = ({ onMenuClick }: { onMenuClick?: () => void }) => {
     const fetchNotifications = async () => {
       try {
         let token = null;
-        try { token = await getToken(); } catch(e) {}
+        try { token = await getToken(); } catch (_) {}
         
         if (!token && !userId) return;
 
-        const headers: any = {};
+        const headers: Record<string, string> = {};
         if (token) headers['Authorization'] = `Bearer ${token}`;
         if (userId) headers['x-test-user-id'] = userId;
 

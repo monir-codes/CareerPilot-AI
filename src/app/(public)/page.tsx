@@ -2,6 +2,10 @@ import { ArrowRight, Sparkles, Target, Zap, CheckCircle2, FileText, Compass, Use
 import { Button } from '@/components/ui/Button';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import Link from 'next/link';
+import { TrendingCareers } from '@/components/TrendingCareers';
+import { HowItWorks } from '@/components/HowItWorks';
+import { Testimonials } from '@/components/Testimonials';
+import { FAQ } from '@/components/FAQ';
 
 export default function HomePage() {
   return (
@@ -64,6 +68,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      <TrendingCareers />
+      <HowItWorks />
+
       <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
@@ -99,6 +106,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Testimonials />
+      <FAQ />
 
       <section className="py-32 relative overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-primary" />

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Bookmark, MapPin, Star, Briefcase, DollarSign } from 'lucide-react';
 import Link from 'next/link';
 
-export const CareerCard = ({ career }: { career: any }) => {
+export const CareerCard = ({ career }: { career: Record<string, any> }) => {
   return (
     <motion.div 
       whileHover={{ y: -5 }}

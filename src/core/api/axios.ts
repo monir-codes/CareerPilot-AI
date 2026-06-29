@@ -9,8 +9,8 @@ export const apiClient = axios.create({
 // Request Interceptor: Attach Clerk Token if window is defined
 apiClient.interceptors.request.use(
   async (config) => {
-    if (typeof window !== 'undefined' && (window as any).Clerk && (window as any).Clerk.session) {
-      const token = await (window as any).Clerk.session.getToken();
+    if (typeof window !== 'undefined' && (window as Record<string, any>).Clerk && (window as Record<string, any>).Clerk.session) {
+      const token = await (window as Record<string, any>).Clerk.session.getToken();
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
