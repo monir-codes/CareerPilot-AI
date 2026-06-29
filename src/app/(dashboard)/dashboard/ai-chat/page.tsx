@@ -153,7 +153,7 @@ export default function AIChatPage() {
       </div>
 
       {/* Main Chat Window */}
-      <div className="flex-1 flex flex-col h-full overflow-hidden w-full">
+      <div className="flex-1 flex flex-col h-full overflow-hidden w-full min-w-0">
         {/* Mobile Header */}
         <div className="md:hidden p-4 border-b border-slate-200 dark:border-slate-800 flex items-center gap-4 bg-white dark:bg-[#09090b]">
            <button onClick={() => setIsSidebarOpen(true)} className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
@@ -222,7 +222,7 @@ export default function AIChatPage() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask me anything..."
-              className="flex-1 px-5 py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary outline-none"
+              className="flex-1 min-w-0 px-5 py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary outline-none"
               disabled={isLoading}
             />
             <button 
